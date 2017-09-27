@@ -30,7 +30,7 @@
                 <!-- Map Column -->
                 <div class="col-lg-8 mb-4">
 
-                    <form method="post" action="noticeWriteAction.php" enctype="multipart/form-data">
+                    <form method="post" action="./action/noticeWriteAction.php" enctype="multipart/form-data">
                         <input type="hidden" name="wp_hp_field" value="<?=$wp_hp_field?>">
                         <div class="form-group">
                             <label>ID</label>

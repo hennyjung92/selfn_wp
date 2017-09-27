@@ -32,7 +32,7 @@
                 <!-- Map Column -->
                 <div class="col-lg-8 mb-4">
 
-                    <form method="post" action="../../updateAction.jsp?bbsID=<%=bbsID%>">
+                    <form method="post" action="./action/updateAction.php?bbsID=<%=bbsID%>">
                         <div class="form-group">
                             <label>TITLE</label>
                             <input type="text" class="form-control" name="bbsTitle" maxlength="50" value="">

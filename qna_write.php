@@ -30,7 +30,7 @@
                 <!-- Map Column -->
                 <div class="col-lg-8 mb-4">
 
-                    <form method="post" action="${pageContext.request.contextPath}/writeAction.jsp">
+                    <form method="post" action="">
                         <div class="form-group">
                             <label>TITLE</label>
                             <input type="text" class="form-control" name="bbsTitle" maxlength="50">
