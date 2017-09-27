@@ -24,101 +24,69 @@
             <p class="text-muted"></p>
             <hr>
         </div>
+        <?
 
+        $sn_hp_bbs_field = $_GET[sn_hp_bbs_field];
+        $_page = $_GET[_page];
+
+        $view_total = 10; // 한 페이지에 보이는 수
+        if(!$_page)($_page=1); // 페이지 번호가 지정이 안되었을 경우
+        $page = ($_page-1)*$view_total;
+
+        $query = "select count(*) from sn_hp_bbs where sn_hp_bbs_field='$sn_hp_bbs_field'"; // 총 게시글 수
+        mysql_query("set names utf8");
+        $result = mysql_query($query, $connect);
+        $temp = mysql_fetch_array($result);
+        $total = $temp[0];
+        ?>
         <!-- Page Content -->
         <div class="container">
             <div class="row">
-                <div class="col-lg-2 col-sm-2">
+                <div class="col-lg-2 col-md-1 col-sm-1 col-xs-1">
                 </div>
-                <div class="col-lg-8 col-sm-8">
-                    <table class="table table-hover">
-                        <thead class="thead-default">
+                <div class="col-lg-8 col-md-10 col-sm-10 col-xs-10">
+                    <table class="table table-hover" style="text-align:center;">
+                        <thead class="thead-default" >
                         <tr>
-                            <th>No</th>
-                            <th>Title</th>
-                            <th>ID</th>
-                            <th>Date</th>
-                            <th>Hits</th>
+                            <th style="text-align:center;">No</th>
+                            <th style="text-align:center;">Title</th>
+                            <th style="text-align:center;">ID</th>
+                            <th style="text-align:center;">Date</th>
+                            <th style="text-align:center;">Hit</th>
                         </tr>
                         </thead>
                         <tbody>
+                        <?
+                        $query = "select * from sn_hp_bbs where sn_hp_field ='$sn_hp_bbs_field' order by sn_hp_bbs_no desc limit $page, $view_total";
+                        $result = mysql_query($query, $connect);
+                        $cnt = 1; // 게시물 나열 번호
+                        while($data = mysql_fetch_array($result)){
+                        ?>
                         <tr>
-                            <th scope="row">1</th>
-                            <td><a href="#">리뷰 게시판 목록 1</a></td>
-                            <td>whopet1</td>
-                            <td>2017-09-01</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td><a href="#">리뷰 게시판 목록 1</a></td>
-                            <td>whopet1</td>
-                            <td>2017-09-01</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td><a href="#">리뷰 게시판 목록 1</a></td>
-                            <td>whopet1</td>
-                            <td>2017-09-01</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">4</th>
-                            <td><a href="#">리뷰 게시판 목록 1</a></td>
-                            <td>whopet1</td>
-                            <td>2017-09-01</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">5</th>
-                            <td><a href="#">리뷰 게시판 목록 1</a></td>
-                            <td>whopet1</td>
-                            <td>2017-09-01</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">6</th>
-                            <td><a href="#">리뷰 게시판 목록 1</a></td>
-                            <td>whopet1</td>
-                            <td>2017-09-01</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">7</th>
-                            <td><a href="#">리뷰 게시판 목록 1</a></td>
-                            <td>whopet1</td>
-                            <td>2017-09-01</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">8</th>
-                            <td><a href="#">리뷰 게시판 목록 1</a></td>
-                            <td>whopet1</td>
-                            <td>2017-09-01</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">9</th>
-                            <td><a href="#">리뷰 게시판 목록 1</a></td>
-                            <td>whopet1</td>
-                            <td>2017-09-01</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">10</th>
-                            <td><a href="#">리뷰 게시판 목록 1</a></td>
-                            <td>whopet1</td>
-                            <td>2017-09-01</td>
-                            <td>0</td>
+                            <td><?=$cnt?></td>
+                            <td><a href="qna_detail.php?sn_hp_bbs_no=<?=$data[sn_hp_bbs_no]?>&sn_hp_bbs_field=<?=$sn_hp_bbs_field?>">
+                                    <?=$data[sn_hp_bbs_title]?></a></td>
+                            <td><?=$data[sn_hp_member_id]?></td>
+                            <td><?=$data[sn_hp_bbs_date]?></td>
+                            <td><?=$data[sn_hp_bbs_hit]?></td>
+                            <?
+                            $cnt++;
+                            }
+                            ?>
                         </tr>
                         </tbody>
                     </table>
                     <hr>
-
-                    <a href="qna_write.php"><button type="button" class="btn btn-outline-primary pull-right">Write</button></a>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="text-center">
+                                <? include('paging.php');?>
+                            </div>
+                            <a href="qna_write.php?sn_hp_bbs_field=<?=$sn_hp_bbs_field?>" class="btn btn-outline-primary pull-right">Write</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-lg-2 col-sm-2"></div>
+                <div class="col-lg-2 col-md-1 col-sm-1 col-xs-1"></div>
             </div>
         </div>
     </div>

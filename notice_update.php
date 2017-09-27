@@ -48,12 +48,12 @@
 
 
                         <div class="form-group">
-                            <?if($data[file01]){?>
-                                파일 : <?echo "<font>".$data[file01]."</font>";?> &nbsp; &nbsp; &nbsp;
+                            <?if($data[sn_hp_bbs_file]){?>
+                                파일 : <?echo "<font>".$data[sn_hp_bbs_file]."</font>";?> &nbsp; &nbsp; &nbsp;
                                 <a href="#" onclick ="window.open('./file_del.php?wp_hp_review_no=<?=$wp_hp_review_no?>','open',
                                     'width=450,height=150, top=50,left=5, scrollbars=no, resizable=no')"><font color="FF0000">[삭제]</font></a>
                             <? } ?>
-                            <input type="file" class="form-control-file" name="file01">
+                            <input type="file" class="form-control-file" name="sn_hp_bbs_file">
                         </div>
                         <div class="text-center" style="padding-top:20px; padding-bottom:30px;">
                             <button type="button" class="btn btn-outline-danger" onclick="cancel()">Cancel</button>

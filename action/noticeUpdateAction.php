@@ -2,25 +2,25 @@
 
 include("db_connect.php");
 $connect = dbconn();
-$wp_hp_member = member();
+$sn_hp_member = member();
 
-if(!$wp_hp_member[wp_hp_id])Error("로그인 후 이용해주세요.");
+if(!$sn_hp_member[sn_hp_member_id])Error("로그인 후 이용해주세요.");
 
-$wp_hp_review_title = $_POST[wp_hp_review_title];
-$wp_hp_review_summary=$_POST[wp_hp_review_summary];
-$wp_hp_review_content = $_POST[wp_hp_review_content];
-$wp_hp_review_no = $_POST[wp_hp_review_no];
-$wp_hp_field = $_POST[wp_hp_field];
+$sn_hp_bbs_title = $_POST[sn_hp_bbs_title];
+$sn_hp_bbs_summary=$_POST[sn_hp_bbs_summary];
+$sn_hp_bbs_content = $_POST[sn_hp_bbs_content];
+$sn_hp_bbs_no = $_POST[sn_hp_bbs_no];
+$sn_hp_bbs_field = $_POST[sn_hp_bbs_field];
 
-if(!$wp_hp_review_title)Error("제목을 입력하세요.");
-if(!$wp_hp_review_summary)Error("요약을 입력하세요.");
-if(!$wp_hp_review_content)Error("내용을 입력하세요.");
+if(!$sn_hp_bbs_title)Error("제목을 입력하세요.");
+if(!$sn_hp_bbs_summary)Error("요약을 입력하세요.");
+if(!$sn_hp_bbs_content)Error("내용을 입력하세요.");
 
-if($_FILES[file01][name]){
-    $_FILES['file01']['size'];
+if($_FILES[sn_hp_bbs_file][name]){
+    $_FILES['sn_hp_bbs_file']['size'];
     if($size > 2097152)Error("파일용량 :2MB로 제한합니다.");
 
-    $file01_name = strtolower($_FILES['file01']['name']); // 파일명과 확장자를 소문자로 변경
+    $file01_name = strtolower($_FILES['sn_hp_bbs_file']['name']); // 파일명과 확장자를 소문자로 변경
     $file01_split = explode(".", $file01_name); // 파일명과 확장자 분리
 
     $extexplode = $file01_split[count($file01_split)-2.3]; // 파일명만 가져오기
@@ -33,21 +33,21 @@ if($_FILES[file01][name]){
     $newFile01 = chr(rand(97,122)).chr(rand(97,122)).$tate.rand(1,9).rand(1,9).".".$file01_type; // 파일명 생성 - 파일 중복 방지
 
     $dir ="../data/"; // 업로드 디렉토리 지정
-    move_uploaded_file($_FILES['file01']['tmp_name'],$dir.$newFile01); // tmp_name : 임시 파일 경로
+    move_uploaded_file($_FILES['sn_hp_bbs_file']['tmp_name'],$dir.$newFile01); // tmp_name : 임시 파일 경로
     chmod($dir.$newFile01,0777);
 
-    $query = "update wp_hp_reviewBBS set file01='$newFile01'
-              where wp_hp_review_no = '$wp_hp_review_no'";
+    $query = "update sn_hp_bbs set sn_hp_bbs_file='$newFile01'
+              where sn_hp_bbs_no = '$sn_hp_bbs_no'";
     mysql_query($query,$connect);
 }
 
-if(!$newFile01 && $_FILES[file01][name]=='')Error("파일을 첨부해주세요.");
+if(!$newFile01 && $_FILES[sn_hp_bbs_file][name]=='')Error("파일을 첨부해주세요.");
 
-$query = "update wp_hp_reviewBBS 
-          set wp_hp_review_title='$wp_hp_review_title',
-              wp_hp_review_content ='$wp_hp_review_content',
-              wp_hp_review_summary ='$wp_hp_review_summary'
-          where wp_hp_review_no = '$wp_hp_review_no'
+$query = "update sn_hp_bbs
+          set sn_hp_bbs_title='$sn_hp_bbs_title',
+              sn_hp_bbs_content ='$sn_hp_bbs_content',
+              sn_hp_bbs_summary ='$sn_hp_bbs_summary'
+          where sn_hp_bbs_no = '$sn_hp_bbs_no'
               ";
 mysql_query("set names utf8", $connect);
 mysql_query($query, $connect);
@@ -57,5 +57,5 @@ mysql_close;
 
 <script>
     window.alert("수정되었습니다.");
-    location.href="../notice_detail.php?wp_hp_review_no=<?=$wp_hp_review_no?>&wp_hp_field=<?=$wp_hp_field?>&file01=<?=$file01?>";
+    location.href="../notice_detail.php?sn_hp_bbs_no=<?=$sn_hp_bbs_no?>&sn_hp_bbs_field=<?=$sn_hp_bbs_field?>&sn_hp_bbs_file=<?=$sn_hp_bbs_file?>";
 </script>

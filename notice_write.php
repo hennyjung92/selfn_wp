@@ -49,7 +49,7 @@
                             <textarea class="form-control" name="wp_hp_review_content" rows="10" maxlength="2048"></textarea>
                         </div>
                         <div class="form-group">
-                            <input type="file" class="form-control-file" name="file01">
+                            <input type="file" class="form-control-file" name="sn_hp_bbs_file">
                         </div>
                         <div class="text-center" style="padding-top:20px; padding-bottom:30px;">
                             <button type="button" class="btn btn-outline-danger" onclick="cancel()">Cancel</button>

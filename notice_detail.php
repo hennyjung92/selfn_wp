@@ -28,7 +28,7 @@
                 <!-- Post Content Column -->
                 <div class="col-lg-8 col-sm-8">
                     <!-- Preview Image -->
-                    <img class="img-fluid rounded" src='../data/<?=$data[file01]?>' alt="" style="display: block; margin-left: auto; margin-right: auto;">
+                    <img class="img-fluid rounded" src='../data/<?=$data[sn_hp_bbs_file]?>' alt="" style="display: block; margin-left: auto; margin-right: auto;">
                     <hr>
                     <!-- Date/Time -->
                     <p>Posted on <?=$data[wp_hp_review_date]?></p>
