@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>SELFN - Q & A</title>
+<title>SELFN - Q & A </title>
 <? include("./common/head.php") ?>
 
 <body id="page-top" style="color: #222;">
