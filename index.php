@@ -102,7 +102,7 @@
 
             <h2>Vehicle Tracking.</h2>
             <!-- <h2>Vehicle Position Tracker</h2> -->
-            <a href="service.html" class="btn btn-outline btn-xl">View more</a>
+            <a href="service.php" class="btn btn-outline btn-xl">View more</a>
         </div>
     </div>
     <div class="overlay"></div>
