@@ -116,7 +116,7 @@
                     </table>
                     <hr>
 
-                    <a href="#"><button type="button" class="btn btn-outline-primary pull-right">Write</button></a>
+                    <a href="qna_write.php"><button type="button" class="btn btn-outline-primary pull-right">Write</button></a>
                 </div>
                 <div class="col-lg-2 col-sm-2"></div>
             </div>

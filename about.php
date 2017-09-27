@@ -3,7 +3,6 @@
 <title>SELFN - About</title>
 <? include("./common/head.php") ?>
 <? include("./common/gototop.php") ?>
-
 <body id="page-top">
 <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 <? include("./common/header.php") ?>
@@ -75,7 +74,6 @@
 
             <h2>Our Differences</h2>
             <p style="color:white;">Real-time location tracking in indoor and underground.</p>
-            <!-- <h2>Vehicle Position Tracker</h2> -->
             <a href="#difference" class="btn btn-outline btn-xl js-scroll-trigger">View more</a>
         </div>
     </div>
@@ -98,7 +96,6 @@
                         Previously, it was not possible to track the location in the basement and inside the building,
                         but SELFN can track the exact location in the underground and inside the building.
                     </p>
-                    <!--                    <p>기존에는 지하나 건물 내부에서 위치 추적이 불가능했지만<br>WHOPET은 지하나 건물 내부에서도<br>반려동물의 정확한 위치 추적이 가능합나다.</p>-->
                 </div>
             </div>
         </div>
@@ -121,7 +118,6 @@
                         SELFN provides notifications on the map as well as a tracking function
                         instead of a simple loss notification.
                     </p>
-                    <!--                    <p>일정거리 이상 벗어날 경우, 단순 분실 알림이 아니라<br>map 상에서 알림과 동시에 추적 기능을 제공합니다.</p>-->
                 </div>
             </div>
         </div>
@@ -139,7 +135,6 @@
                 <div class="p-5">
                     <h2 class="display-4">PC Available</h2>
                     <p style="font-weight: 700;">Can trace to PC without smartphone</p>
-                    <!--                    <p>기존에는 스마트폰이 없으면 위치 추적 서비스가 불가했지만<br>WHOPET은 스마트폰이 없이도 PC에서 위치 추적이 가능합니다.</p>-->
                     <p>
                         In the past, location tracking service was not available without a smartphone,
                         but SELFN can track the location on a PC without a smartphone.
@@ -162,7 +157,6 @@
                 <div class="p-5">
                     <h2 class="display-4">Unlimited Service</h2>
                     <p style="font-weight: 700;">Provides unlimited service for device purchase</p>
-                    <!--                    <p>통신 서비스 가입 후 매달 사용료를 지불하는 방식이 아닌!<br>디바이스 구매 시 무한 서비스를 제공합니다.</p>-->
                     <p>We provide unlimited service when purchasing device, not monthly payment after monthly subscription.</p>
                 </div>
             </div>

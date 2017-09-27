@@ -1,7 +1,8 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: hyunji_jung
- * Date: 2017. 9. 27.
- * Time: PM 2:36
- */
+<? header("content-type:text/html; charset=UTF-8");
+session_start();
+session_destroy();
+?>
+<script>
+    window.alert("로그아웃 되었습니다.");
+    location.href="../index.php";
+</script>
